@@ -142,6 +142,6 @@ df1.show()
 joined=join_two_DF(df1,df2,'inner','user_id','user_id')
 joined.show()
 count_of_unique_location(joined,'location').show()
-user_products(joined,'email_id','product_description').show()2
+user_products(joined,'email_id','product_description').show()
 total_spending(joined, 'email_id', 'price').show()
 split_column(joined,'@','email_id').show()
