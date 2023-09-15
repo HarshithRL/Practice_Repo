@@ -3,8 +3,9 @@ from pyspark.sql import SparkSession
 sc=SparkSession.builder.appName('name').getOrCreate()
 dataDF=None
 schema=None
+
 df=sc.creatDataFrame(dataDF,schema)
-df=df.select(df['colName'])
+df=df.select(df['name'])
 
 """Convert Unix time to timestamp"""
 from pyspark.sql.functions import from_unixtime, to_date, trim
@@ -29,4 +30,5 @@ pivotDF = df.groupBy("product").pivot("country").sum("amount")
 from pyspark.sql.functions import expr
 unpivotExpr = "stack(2, 'cloname1', 'cloname2') as (Value1,Value2)"
 unPivotDF = pivotDF.select('colname', expr(unpivotExpr)).where("Total is not null")
+
 
